@@ -27,7 +27,8 @@ body {
     font-size: 1.6rem; /*Tamaño general de la letra del body*/ 
     line-height: 1.5; /*Interlineado en todo el body*/ 
     font-family: var(--fuentePrincipal); /*Tipo de letra de los párrafos*/ 
-
+    width: 100%;
+    height: auto
 }
 p,
 a {
@@ -45,7 +46,7 @@ h3  {
     color: var(--secundario);
 }
 img {
-    max-width: 100%; /*Las imágenes tendrán un tamaño del 100% --> Hasta el diseño de la página producto, se usó, pero luego, se anula este atributo*/
+    max-width: 100%; /*Las imágenes tendrán un tamaño del 100% 
     /*width: 100%; /*Se usa por defecto para todas las imágenes, anulando todo el código donde iba incluido este atributo en las imágenes (lo dejo comentado
     para no perderme*/
 }
@@ -91,8 +92,6 @@ li{
 
 /*FOOTER*/
 .footer {
-    /* margin-top: 56.3%; */
-    /* background-color: var(--primario); */
     background-image: linear-gradient(to right, var(--primario) 40%, var(--primarioII) 80% );
 }
 .footer__heading {
@@ -358,21 +357,24 @@ li{
     }
     .footer__heading h3 {
         font-size: 1.25rem;
+        margin-right: 10%;
     }
     .footer__texto p {
         font-size: 1rem;
         text-align: center;
-        margin: 0 32rem 0 1.8rem;
+        margin: 0 35.9rem 0 1.8rem;
         padding-left: 7%;
     }
     .footer__iconos {
-        margin-left: 10%
+        display: flex;
+        justify-content: safe;
+        margin: 2% 13% 0 0;
+        
     }
 }
 
 /*TAMAÑO PANTALLA ENTRE 450PX Y 810px*/
 @media (min-width: 450px) and (max-width: 810px) {
-    /*HEADER*/
     .header__foto{
         margin-left: 8rem;
         width: 60rem;
@@ -384,32 +386,26 @@ li{
     /*GRID*/
     .grid {
         display: grid;
-        grid-template-columns: 40% 60%;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(3, 1fr);
         position: relative;
-        margin-top: -4.5rem;
+        height: 172rem;
+        margin: -7.5rem 0 0 0;
     }
     .colIzquierda {
+        grid-column: 1 / 3;
         grid-row: 1 / 2;
         background-color: var(--primario);
-        padding: 1rem 1rem 1rem 1rem;
-        margin: 8% 2% 2% 2%;
-    }
-    .colIzquierda__contenedor--heading,
-    .colIzquierda__contenedor--texto,
-    .colIzquierda__contenedor--descargas {
-        margin: 0 1.5% 0 1.5%;
-    }
-    .colIzquierda__contenedor--heading {
-        padding-top: 2%;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        /* margin: 4.7rem .4rem .4rem .4rem; */
+        margin: 10.6% 2% 2% 2%;
     }
     .colIzquierda__contenedor--iconos {
-        margin-top: 7%;
-        margin-bottom: 7%;
-        text-align: center;
+        text-align: justify;
     }
-    .colIzquierda__contenedor--iconos img{
-        padding: 0;
+    .colDerecha {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
     }
     .colDerecha__contenedorBloque1 {
         display: grid;
@@ -439,6 +435,7 @@ li{
         grid-row: 1 / 3;
         /* margin-left: 5%; */
     }
+
     .colDerecha__contenedorBloque--heading{
         grid-row: 1 / 2;
         grid-column: 1 / 3;
@@ -452,14 +449,16 @@ li{
     .colDerecha__contenedorBloque--texto1{
         grid-row: 3 / 4;
         grid-column: 1 / 4;
+  
         margin: -2.8rem 0 0 1%;
     }
     
     /*FOOTER*/
     .footer {
         position: absolute;
-        margin-top: -220rem;
+        margin-top: 14rem;
         width: 100%;
+       
     }
     .footer__heading h3 {
         font-size: 1.9rem;
@@ -476,15 +475,35 @@ li{
 /* TAMAÑO PANTALLA ENTRE 811PX Y 1250px */
 @media (min-width: 811PX) and (max-width: 1250px) {
     /*GRID*/
-    .grid{
-        margin-top: 3rem;
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        position: relative;
+        height: 172rem;
+        margin-top: 1.8rem;
     }
-    .colIzquierda__contenedor--iconos { 
-        padding: 3%;
-        text-align: center;
+    .colIzquierda {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        background-color: var(--primario);
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        /* margin: 4.7rem .4rem .4rem .4rem; */
+        margin: 10.6% 2% 2% 2%;
     }
-    .colIzquierda__contenedor--iconos img{
-        padding: 0;
+    .colIzquierda__contenedor--iconos {
+        /* margin-left: 25rem; */
+        margin: 3rem 0 3rem 26rem;
+        width: 45rem;
+        text-align:center ;
+    }
+    .colIzquierda__contenedor--iconos img {
+        margin-top: 1rem;
+        padding: 0 ;
+    }
+    .colDerecha {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
     }
     .colDerecha__contenedorBloque1 {
         display: grid;
@@ -514,6 +533,7 @@ li{
         grid-row: 1 / 3;
         /* margin-left: 5%; */
     }
+
     .colDerecha__contenedorBloque--heading{
         grid-row: 1 / 2;
         grid-column: 1 / 3;
@@ -527,13 +547,20 @@ li{
     .colDerecha__contenedorBloque--texto1{
         grid-row: 3 / 4;
         grid-column: 1 / 4;
+  
         margin: -2.8rem 0 0 1%;
+    }
+    .footer {
+        margin-top: 20rem;
     }
 }
 
 /*TAMAÑO PANTALLA ENTRE 1251PX Y 1500px*/
 /*GRID*/
-@media (min-width: 1250PX) and (max-width: 1500px) {
+@media (min-width: 1251PX) and (max-width: 1500px) {
+    .grid {
+        margin-top: 8rem;
+    }
     .colIzquierda__contenedor--iconos { 
         padding: 3%;
         text-align: justify;
@@ -583,6 +610,9 @@ li{
         grid-row: 3 / 4;
         grid-column: 1 / 4;
         margin: -2.8rem 0 0 1%;
+    }
+    .footer {
+        margin-top: 8rem;
     }
 }
 
